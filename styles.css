@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*THE WHOLE PAGE*/
+#notebook {
+    background-image: url(Screenshot_20221123_130947.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    max-width: 360px;
+    max-height: 640px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Outfit', sans-serif;
+}
+
+/*TOP BAR*/
+#bar {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 100%;
+    margin: 30px 0 20px 0;
+    padding-right: 30px;
+    font-size: 1.5rem;
+}
+
+#bar i {
+    padding: 2px 10px;
+}
+
+#trash {
+    border-radius: 50%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.fa-plus {
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.button {
+    width: 60px !important;
+}
+
+.btn {
+    background-color: #e7742200;
+    border: none;
+    width: 100px;
+    text-align: center;
+}
+
+.btn-clo {
+    background-color: gray !important;
+}
+
+.btn-save {
+    background-color: #E77522 !important;
+}
+
+/*FIRST TOP DIV*/
+#other {
+    width: 100%;
+}
+
+/*DONE*/
+#done {
+    width: 100%;
+    height: 100%;
+    padding-top: 8%;
+}
+
+.titletext {
+    padding-left: 60px;
+    font-weight: 700;
+}
+
+/*NOTE DIV*/
+.form-check {
+    display: flex !important;
+    align-items: center;
+    flex-direction: row;
+
+    margin: 2% 0 2% 15% !important;
+}
+
+/*CHECKBOX*/
+.form-check-input {
+    box-shadow: 2px 2px 4px #00000066;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #E77522 !important;
+    border: 1px solid #E77522 !important;
+}
+
+/*TEXT*/
+.paragraph {
+    margin-bottom: 0 !important;
+    margin-left: 5%;
+    margin-right: 5%;
+    word-break: break-all;
+    width: 75%;
+}
+
+/*DELETE X*/
+.hidden {
+    display: none !important;
+}
+
+/*DROP DOWN SHADOWS*/
+i {
+    text-shadow: 2px 2px 4px #00000066;
+}
