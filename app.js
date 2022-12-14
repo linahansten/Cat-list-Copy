@@ -17,6 +17,7 @@ const firebaseConfig = {
     databaseURL: "https://notebook-c148b-default-rtdb.europe-west1.firebasedatabase.app/"
 };
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // initializes Realtime Database and get a reference service
@@ -30,7 +31,7 @@ onValue(noteRef, function (snapshot) {
 
     const list = document.querySelector("#other")
     const doneList = document.querySelector("#done")
-
+    //Remove childen 
     list.replaceChildren()
     doneList.replaceChildren()
 
@@ -49,8 +50,8 @@ onValue(noteRef, function (snapshot) {
         checkInput.classList.add("form-check-input")
         checkInput.setAttribute("type", "checkbox")
         checkInput.setAttribute("id", "flexCheckDefault")
-        checkInput.addEventListener("click", function (e) {
-            done(childKey, childData.done, e.target)
+        checkInput.addEventListener("click", function () {
+            done(childKey, childData.done, childData.checked)
         })
 
         //Creates a paragraph
@@ -63,7 +64,10 @@ onValue(noteRef, function (snapshot) {
         const x = document.createElement("i")
         x.classList.add("fa-x")
         x.classList.add("fa-solid")
-        x.classList.add("hidden")
+        if (showDelete == false) {
+            x.classList.add("hidden")
+        }
+
         // When clicked it will delete the whole element
         x.addEventListener("click", function () {
             del(childKey)
@@ -76,12 +80,12 @@ onValue(noteRef, function (snapshot) {
         formCheck.appendChild(paragraph)
         formCheck.appendChild(x)
 
-        console.log(childData.done)
-
         // Check if done
         if (childData.done) {
             // Set done in database
             doneList.appendChild(formCheck)
+            //Puts so checkbox so checked is visible
+            checkInput.checked = true
         } else {
             list.appendChild(formCheck)
         }
@@ -99,21 +103,17 @@ save.addEventListener("click", function () {
     // send to database
     push(ref(db, "note/"), {
         text: note.value,
-        done: false
+        done: false,
+        checked: false,
     })
     // clear message box
     note.value = ""
 
 })
 
-
-
-// sees if done = true and saves on done aswell, text shrinks
-// if click on p it will open modal to edit msg
-
 //-------------------------------------DATABASE----------------------------------------------------------
 
-//Makes the x disapair and reapair
+//Makes the x disapair and re apair
 let showDelete = false
 
 //Sees if Trash has been click on 
@@ -144,12 +144,12 @@ function del(noteId) {
 }
 
 // Sees if the box is checked or not
-function done(noteId, done, el) {
+function done(noteId, done, checked) {
     if (done) {
         // Set undone in database
         update(ref(db, 'note/' + noteId), { done: false })
     } else {
         // Set done in database
-        update(ref(db, 'note/' + noteId), { done: true })
+        update(ref(db, 'note/' + noteId), { done: true, checked: true })
     }
 }

@@ -6,7 +6,6 @@
 
 body {
     width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,36 +13,42 @@ body {
 
 /*THE WHOLE PAGE*/
 #notebook {
-    background-image: url(Screenshot_20221123_130947.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: relative;
     height: 100%;
     width: 100%;
     max-width: 360px;
-    max-height: 640px;
     display: flex;
     flex-direction: column;
     font-family: 'Outfit', sans-serif;
 }
 
 /*TOP BAR*/
-#bar {
+#top-textbook {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: right;
     width: 100%;
-    margin: 30px 0 20px 0;
-    padding-right: 30px;
+    height: 50px;
+    padding: 30px 30px 0 0;
     font-size: 1.5rem;
+    background-image: url(notebook-top.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top right;
 }
 
-#bar i {
-    padding: 2px 10px;
+#top-textbook i {
+    padding: 3px 10px;
+}
+
+/*DROP DOWN SHADOWS*/
+i {
+    text-shadow: 2px 2px 4px #00000066;
+    cursor: pointer;
 }
 
 #trash {
-    border-radius: 50%;
-    width: 10%;
     display: flex;
     justify-content: center;
     cursor: pointer;
@@ -64,6 +69,7 @@ body {
     border: none;
     width: 100px;
     text-align: center;
+    padding: 6px 12px 6px 12px !important;
 }
 
 .btn-clo {
@@ -74,21 +80,32 @@ body {
     background-color: #E77522 !important;
 }
 
-/*FIRST TOP DIV*/
-#other {
-    width: 100%;
+/*MIDDLE-TEXTBOOK*/
+.middle-textbook {
+    background-image: url(notebook-middle.png);
+    background-size: contain;
+    margin-top: 50px;
+    background-position: top right;
+    min-height: 548px;
 }
 
-/*DONE*/
-#done {
+/*BOTTOM-TEXTBOOK*/
+.bottom-textbook {
     width: 100%;
-    height: 100%;
-    padding-top: 8%;
+    height: 42px;
+    background-image: url(notebook-bottom.png);
+    background-size: cover;
+    background-position: top right;
 }
+
 
 .titletext {
-    padding-left: 60px;
+    padding: 14px 0 4px 60px;
     font-weight: 700;
+}
+
+.titletext p {
+    margin-bottom: 0;
 }
 
 /*NOTE DIV*/
@@ -96,8 +113,7 @@ body {
     display: flex !important;
     align-items: center;
     flex-direction: row;
-
-    margin: 2% 0 2% 15% !important;
+    margin: 9px 0 9px 15% !important;
 }
 
 /*CHECKBOX*/
@@ -113,9 +129,7 @@ body {
 
 /*TEXT*/
 .paragraph {
-    margin-bottom: 0 !important;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin: 0 5% 0 5% !important;
     word-break: break-all;
     width: 75%;
 }
@@ -123,9 +137,4 @@ body {
 /*DELETE X*/
 .hidden {
     display: none !important;
-}
-
-/*DROP DOWN SHADOWS*/
-i {
-    text-shadow: 2px 2px 4px #00000066;
 }

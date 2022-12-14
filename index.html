@@ -15,10 +15,10 @@
 
 <body>
     <div id="notebook">
-        <div id="bar">
-
+        <!--TOP TEXTBOOK NAVBAR-->
+        <div id="top-textbook">
             <i id="trash" type="checkbox" value="" class="fa-solid fa-trash"></i>
-
+            <!--MODAL-->
             <button type="button" class="btn button" data-bs-toggle="modal" data-bs-target="#exampleModal"
                 data-bs-whatever="@mdo"> <i class="fa-solid fa-plus"></i></button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -45,19 +45,24 @@
                 </div>
             </div>
         </div>
+        <!--MODAL END-->
+        <!--MIDDLE TEXTBOOK-->
+        <div class="middle-textbook">
+            <div class="titletext">
+                <p>UNDONE</p>
+            </div>
+            <div id="other">
+            </div>
 
-        <div id="other">
-
-        </div>
-
-        <div>
             <div class="titletext">
                 <p>DONE</p>
             </div>
-
-            <div id="done"></div>
+            <div id="done">
+            </div>
         </div>
-
+        <!--BOTTOM NAVBAR-->
+        <div class="bottom-textbook">
+        </div>
     </div>
     <script type="module" src="app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
