@@ -134,6 +134,11 @@ i {
     width: 75%;
 }
 
+/*DONE TEXT*/
+#done .paragraph {
+    text-decoration: line-through;
+}
+
 /*DELETE X*/
 .hidden {
     display: none !important;

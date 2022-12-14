@@ -101,13 +101,15 @@ const note = document.getElementById("message-text")
 // When save is clicked
 save.addEventListener("click", function () {
     // send to database
-    push(ref(db, "note/"), {
-        text: note.value,
-        done: false,
-        checked: false,
-    })
-    // clear message box
-    note.value = ""
+    if (note.value) {
+        push(ref(db, "note/"), {
+            text: note.value,
+            done: false,
+            checked: false,
+        })
+        // clear message box
+        note.value = ""
+    }
 
 })
 
@@ -144,7 +146,7 @@ function del(noteId) {
 }
 
 // Sees if the box is checked or not
-function done(noteId, done, checked) {
+function done(noteId, done) {
     if (done) {
         // Set undone in database
         update(ref(db, 'note/' + noteId), { done: false })
